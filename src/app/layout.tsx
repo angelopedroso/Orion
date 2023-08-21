@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background`}>
+      <body className={`${inter.className} bg-background px-10 py-8 md:px-20`}>
         <SessionCtxProvider>
           <Header />
           {children}
