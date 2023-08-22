@@ -20,18 +20,7 @@ const config: Config = {
       colors: {
         'surface-primary-dark': '#0d121d',
         'surface-primary': '#111827',
-      },
-      backgroundColor: {
         background: '#030712',
-      },
-      width: {
-        536: '134rem',
-      },
-      height: {
-        536: '134rem',
-      },
-      rotate: {
-        '60': '60deg',
       },
       keyframes: {
         'accordion-down': {
@@ -55,7 +44,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('tailwindcss-neumorphism')],
 }
 
 export default config
