@@ -1,4 +1,3 @@
-import { Header } from '@/components/Header/header'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -18,11 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background px-10 py-8 md:px-20`}>
-        <SessionCtxProvider>
-          <Header />
-          {children}
-        </SessionCtxProvider>
+      <body className={`${inter.className} bg-background`}>
+        <SessionCtxProvider>{children}</SessionCtxProvider>
       </body>
     </html>
   )
