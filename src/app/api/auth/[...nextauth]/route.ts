@@ -1,8 +1,14 @@
 import NextAuth, { NextAuthOptions } from 'next-auth'
+
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from 'next-auth/providers/github'
 
-const authOptions: NextAuthOptions = {
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+
+import { db } from '@/lib/db'
+
+export const authOptions: NextAuthOptions = {
+  adapter: PrismaAdapter(db),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -13,9 +19,29 @@ const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET ?? '',
     }),
   ],
+  callbacks: {
+    session: async ({ session, user }) => {
+      const userData = await db.user.findUnique({
+        where: {
+          email: user.email,
+        },
+      })
+
+      session.user = {
+        name: userData?.name,
+        email: userData?.email,
+        image: userData?.image,
+        openai_token: userData?.openai_token,
+      }
+
+      return Promise.resolve(session)
+    },
+  },
   pages: {
     signIn: '/login',
   },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development',
 }
 
 const handler = NextAuth(authOptions)
