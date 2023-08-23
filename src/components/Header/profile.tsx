@@ -11,8 +11,13 @@ import {
 import { Button } from '../ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { DefaultUserIcon } from '../../assets/userIcon'
+import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 export function ProfileComponent() {
+  const route = useRouter()
+  const { data: session } = useSession()
+
   return (
     <div className="flex items-center gap-3">
       <DropdownMenu>
@@ -24,7 +29,7 @@ export function ProfileComponent() {
             <span className="sr-only">Open menu</span>
             <Avatar className="h-full w-full hover:bg-transparent">
               <AvatarImage
-                src="https://github.com/angelopedroso.png"
+                src={session?.user.image ?? ''}
                 className="transition-all duration-300 hover:blur-sm"
               />
               <AvatarFallback className="bg-gray-500 transition-colors duration-300 hover:bg-violet-500">
@@ -40,10 +45,16 @@ export function ProfileComponent() {
         >
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator className="bg-surface-primary" />
-          <DropdownMenuItem className="cursor-pointer focus:bg-surface-primary focus:text-current">
+          <DropdownMenuItem
+            className="cursor-pointer focus:bg-surface-primary focus:text-current"
+            onClick={() => route.push('/login/setting-up')}
+          >
             Profile
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer focus:bg-surface-primary focus:text-current">
+          <DropdownMenuItem
+            className="cursor-pointer focus:bg-surface-primary focus:text-current"
+            onClick={() => signOut({ callbackUrl: '/' })}
+          >
             Sign out
           </DropdownMenuItem>
         </DropdownMenuContent>
