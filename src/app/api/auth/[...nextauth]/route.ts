@@ -27,14 +27,18 @@ export const authOptions: NextAuthOptions = {
         },
       })
 
-      session.user = {
-        name: userData?.name,
-        email: userData?.email,
-        image: userData?.image,
-        openai_token: userData?.openai_token,
+      if (userData) {
+        session.user = {
+          name: userData?.name,
+          email: userData?.email,
+          image: userData?.image,
+          openai_token: userData?.openai_token,
+        }
+
+        return Promise.resolve(session)
       }
 
-      return Promise.resolve(session)
+      return Promise.resolve({ ...session, openai_token: null })
     },
   },
   pages: {
