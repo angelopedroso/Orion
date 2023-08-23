@@ -6,12 +6,20 @@ import { GoogleIcon } from '@/assets/googleIcon'
 import { Logo } from '@/components/logo'
 import { SignInButton } from '@/components/ui/signin-button'
 
-export interface LoginPageProps {}
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 
-export default function LoginPage(props: LoginPageProps) {
+export default async function Login() {
+  const session = await getServerSession(authOptions)
+
+  if (session?.user.openai_token) {
+    redirect('/english-tool')
+  }
+
   return (
     <main className="grid h-screen place-items-center">
-      <section className="nm-convex-background-xl flex flex-col gap-8 rounded-md px-12 py-16">
+      <section className="flex flex-col gap-8 rounded-md px-12 py-16 nm-convex-background-xl">
         <div className="flex w-full justify-center">
           <Logo />
         </div>
