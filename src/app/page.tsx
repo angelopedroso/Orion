@@ -11,7 +11,7 @@ import { MoveRight } from 'lucide-react'
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between lg:flex-row">
-      <div className="flex h-full flex-col gap-4">
+      <div className="flex h-full flex-col justify-center gap-4">
         <h2 className="text-4xl font-bold text-slate-100 md:max-w-4xl md:text-7xl">
           Desvende o Inglês Autêntico
         </h2>
