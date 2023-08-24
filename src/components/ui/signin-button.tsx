@@ -3,6 +3,8 @@
 import React, { ReactNode, useState } from 'react'
 import { Button } from './button'
 import { signIn } from 'next-auth/react'
+import { Loader2 } from 'lucide-react'
+import { useToast } from './use-toast'
 
 export interface SignInButtonProps {
   children?: ReactNode
@@ -11,14 +13,23 @@ export interface SignInButtonProps {
 
 export function SignInButton({ children, provider }: SignInButtonProps) {
   const [loading, setLoading] = useState(false)
+  const { toast } = useToast()
   const isGithub = provider === 'github'
 
   async function handleSignIn() {
-    setLoading(true)
+    try {
+      setLoading(true)
 
-    const res = await signIn(provider, { callbackUrl: '/login/setting-up' })
-
-    setLoading(false)
+      await signIn(provider, { callbackUrl: '/login/setting-up?signin=true' })
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Opps 😳! Tem algo errado...',
+        description: 'Tempo limite excedido. Tente novamente!',
+      })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -27,8 +38,16 @@ export function SignInButton({ children, provider }: SignInButtonProps) {
       onClick={handleSignIn}
       disabled={loading}
     >
-      {children}
-      Continue with {isGithub ? 'Github' : 'Google'}
+      {loading ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Entrando...
+        </>
+      ) : (
+        <>
+          {children} Continue with {isGithub ? 'Github' : 'Google'}
+        </>
+      )}
     </Button>
   )
 }
