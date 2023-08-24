@@ -18,14 +18,14 @@ export default async function Login() {
   }
 
   return (
-    <main className="grid h-screen place-items-center">
+    <main className="grid h-screen flex-1 place-items-center">
       <section className="flex flex-col gap-8 rounded-md px-12 py-16 nm-convex-background-xl">
         <div className="flex w-full justify-center">
           <Logo />
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-xl font-semibold text-white">
-            Nice to meet you!
+            Prazer em te ver!
           </h2>
           <div className="flex flex-col gap-2">
             <SignInButton provider="github">
