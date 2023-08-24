@@ -27,6 +27,7 @@ export const authOptions: NextAuthOptions = {
 
       if (userData) {
         session.user = {
+          id: userData?.id,
           name: userData?.name,
           email: userData?.email,
           image: userData?.image,
