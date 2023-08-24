@@ -12,6 +12,7 @@ import {
 
 type FormProps = UseFormReturn<
   {
+    id: string
     name: string
     image: string
     email: string
@@ -21,7 +22,7 @@ type FormProps = UseFormReturn<
   undefined
 >
 
-type FormRegisterProps = 'name' | 'image' | 'email' | 'openai_token'
+type FormRegisterProps = 'id' | 'name' | 'image' | 'email' | 'openai_token'
 
 export interface InputSettingsProps {
   title: string
