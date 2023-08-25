@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background`}>
+      <body
+        className={`${inter.className} bg-background-900 scrollbar scrollbar-w-2 hover:scrollbar-thumb-background-700/60 scrollbar-thumb-background-700/40 scrollbar-track-background-900 scrollbar-thumb-rounded-md`}
+      >
         <SessionCtxProvider>{children}</SessionCtxProvider>
         <Toaster />
       </body>

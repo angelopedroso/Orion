@@ -20,7 +20,7 @@ const config: Config = {
       colors: {
         'surface-primary-dark': '#0d121d',
         'surface-primary': '#111827',
-        background: '#030712',
+        background: { 700: '#091538', 900: '#030712' },
       },
       keyframes: {
         'accordion-down': {
@@ -44,7 +44,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('tailwindcss-neumorphism')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwindcss-neumorphism'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 }
 
 export default config
