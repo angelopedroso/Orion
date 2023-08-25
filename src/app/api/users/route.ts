@@ -1,9 +1,10 @@
 import { SettingsFormInterfaceProps } from '@/components/settings-form'
 import { db } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
-import cryptr from 'cryptr'
+import Crypter from 'string-crypto'
 
 export async function PUT(req: NextRequest) {
+  const { decryptString, encryptString } = new Crypter()
   const { id, openai_token: openaiToken }: SettingsFormInterfaceProps =
     await req.json()
 
@@ -27,11 +28,21 @@ export async function PUT(req: NextRequest) {
     )
   }
 
-  if (isUserExists.openai_token === openaiToken) {
-    return NextResponse.json({ status: 201 })
+  if (isUserExists.openai_token) {
+    const descryptedToken = decryptString(
+      isUserExists.openai_token,
+      process.env.ENCRYPTER_PASSWORD,
+    )
+
+    if (descryptedToken === openaiToken) {
+      return NextResponse.json({ status: 200 })
+    }
   }
 
-  const hashedOpenAIToken = cryptr.prototype.encrypt(openaiToken)
+  const hashedOpenAIToken = encryptString(
+    openaiToken,
+    process.env.ENCRYPTER_PASSWORD,
+  )
 
   const data = await db.user.update({
     where: {
