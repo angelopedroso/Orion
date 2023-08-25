@@ -54,10 +54,10 @@ export function InputSettings({
             <Input
               placeholder={title}
               {...field}
-              className={`font-menu h-11 border border-surface-primary bg-transparent text-sm text-slate-500 ${
+              className={`h-11 border border-surface-primary bg-transparent text-sm text-slate-500 ${
                 errors[formRegister]
                   ? 'focus-visible:border-red-500'
-                  : 'focus-visible:border-indigo-600'
+                  : 'focus-visible:border-violet-500'
               } focus-visible:ring-0 focus-visible:ring-offset-0`}
               disabled={formRegister !== 'openai_token'}
             />
