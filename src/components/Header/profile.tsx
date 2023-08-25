@@ -4,15 +4,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu'
-import { Button, buttonVariants } from '../ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { DefaultUserIcon } from '../../assets/userIcon'
-import { signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+} from '@/components/ui/dropdown-menu'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,8 +16,15 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '../ui/alert-dialog'
-import { LogIn, LogOut } from 'lucide-react'
+} from '@/components/ui/alert-dialog'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
+import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+
+import { DefaultUserIcon } from '@/assets/userIcon'
+
+import { LogIn, LogOut, User } from 'lucide-react'
 
 export function ProfileComponent() {
   const route = useRouter()
@@ -51,15 +52,14 @@ export function ProfileComponent() {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           side="bottom"
-          className="border-surface-primary bg-surface-primary-dark text-slate-200"
+          className="border-background-700/60 bg-background-700/40 text-slate-200"
           align="end"
         >
-          <DropdownMenuLabel>Meu Perfil</DropdownMenuLabel>
-          <DropdownMenuSeparator className="bg-surface-primary" />
           <DropdownMenuItem
-            className="cursor-pointer focus:bg-surface-primary focus:text-current"
+            className="cursor-pointer gap-2 focus:bg-surface-primary focus:text-current"
             onClick={() => route.push('/login/setting-up')}
           >
+            <User className="h-4 w-4" stroke="#8b5cf6" fill="#8b5cf6" />
             Perfil
           </DropdownMenuItem>
 
@@ -67,8 +67,9 @@ export function ProfileComponent() {
             <AlertDialogTrigger asChild>
               <Button
                 variant={'ghost'}
-                className="h-fit w-full justify-start rounded-sm px-2 text-sm font-normal text-white hover:bg-surface-primary hover:text-current"
+                className="h-fit w-full justify-start gap-2 rounded-sm px-2 text-sm font-normal text-white hover:bg-surface-primary hover:text-current"
               >
+                <LogOut className="h-4 w-4" stroke="#8b5cf6" fill="#8b5cf6" />
                 Sair
               </Button>
             </AlertDialogTrigger>
@@ -78,18 +79,18 @@ export function ProfileComponent() {
                   Tem certeza que quer sair? 😥
                 </AlertDialogTitle>
               </AlertDialogHeader>
-              <AlertDialogFooter className="gap-8">
-                <AlertDialogCancel className="flex h-full w-36 flex-col gap-2 border-0 bg-violet-500 px-8 py-6 text-white hover:bg-violet-400 hover:text-white">
-                  <LogIn className="h-14 w-14" />
+              <AlertDialogFooter className="flex-row gap-4 md:gap-8">
+                <AlertDialogCancel className="flex h-full w-36 flex-col gap-2 border-0 bg-violet-500 px-8 py-6 text-white hover:bg-violet-400 hover:text-white ">
+                  <LogIn className="h-10 w-10 md:h-14 md:w-14" />
                   Outra hora
                 </AlertDialogCancel>
                 <AlertDialogAction
                   onClick={() => signOut({ callbackUrl: '/' })}
                   className={`${buttonVariants({
                     variant: 'secondary',
-                  })}flex h-full w-36 flex-col gap-2 px-8 py-6`}
+                  })}flex h-full w-36 flex-col gap-2 px-8 py-6 `}
                 >
-                  <LogOut className="h-14 w-14" />
+                  <LogOut className="h-10 w-10 md:h-14 md:w-14" />
                   Sair
                 </AlertDialogAction>
               </AlertDialogFooter>
