@@ -49,7 +49,8 @@ export default function Home() {
             </HoverCard>
             . Imagine aprender inglês de forma mais profunda e específica,
             coletando, estudando e aprendendo frases autênticas a partir de
-            palavras novas que você encontra. Com a nossa ajuda, você estará no
+            palavras novas que você encontra. Com{' '}
+            <span className="text-violet-400">Orion</span>, você estará no
             comando do seu próprio aprendizado, explorando o idioma de maneira
             única e eficaz. Não perca a oportunidade de transformar sua
             experiência de aprendizado - junte-se a nós e comece a minerar o
