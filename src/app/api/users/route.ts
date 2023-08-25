@@ -1,6 +1,7 @@
 import { SettingsFormInterfaceProps } from '@/components/settings-form'
 import { db } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
+import cryptr from 'cryptr'
 
 export async function PUT(req: NextRequest) {
   const { id, openai_token: openaiToken }: SettingsFormInterfaceProps =
@@ -30,12 +31,14 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ status: 201 })
   }
 
+  const hashedOpenAIToken = cryptr.prototype.encrypt(openaiToken)
+
   const data = await db.user.update({
     where: {
       id,
     },
     data: {
-      openai_token: openaiToken,
+      openai_token: hashedOpenAIToken,
     },
   })
 
