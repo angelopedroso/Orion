@@ -25,20 +25,7 @@ const settingsFormSchema = z.object({
   openai_token: z
     .string()
     .nonempty('Token é obrigatório!')
-    .transform((val, ctx) => {
-      const pattern = /^[a-zA-Z0-9-]+$/
-
-      if (val && !pattern.test(val)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Token inválido!',
-        })
-
-        return z.NEVER
-      }
-
-      return val
-    }),
+    .regex(/^(sk-[a-zA-Z0-9-]+)$/, 'Token Inválido!'),
 })
 
 type SettingsFormProps = z.infer<typeof settingsFormSchema>
