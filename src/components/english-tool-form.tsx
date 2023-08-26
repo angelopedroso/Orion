@@ -48,14 +48,14 @@ export function EnglishForm({ promptKey }: EnglishFormProps) {
         className="group flex w-96 max-w-md rounded-md border-2 border-background-700/50 [&:has(:focus-visible)]:ring-2 [&:has(:focus-visible)]:ring-violet-500"
       >
         <Input
-          placeholder="Digite a palavra"
+          placeholder="Digite uma palavra ou expressão"
           className="border-0 focus-visible:ring-0"
           {...form.register('prompt')}
         />
         <Button
           type={'submit'}
           variant={'ghost'}
-          className="h-full px-2"
+          className="h-full rounded-none px-2 hover:bg-background-700/50 hover:text-slate-400"
           disabled={form.formState.isSubmitting}
         >
           <Search className="h-6 w-6" />
