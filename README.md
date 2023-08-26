@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Orion: Desvende o Inglês Autêntico
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+Bem-vindo ao repositório da aplicação Orion, uma ferramenta para auxiliar você em sua jornada de estudos de inglês. Através do método de mineração de frases, o Orion permite que você mergulhe profundamente no idioma, coletando, estudando e aprendendo frases autênticas a partir de palavras novas que você encontra. Com o Orion, o controle do seu próprio aprendizado está em suas mãos, permitindo que você explore o idioma de maneira única e eficaz.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Sobre
+
+Orion é desenvolvido usando NextJS, uma estrutura de renderização React para aplicações web modernas. A autenticação é simplificada e segura graças ao NextAuth, que permite autenticação rápida através de contas do GitHub e Google.
+
+## Requisitos
+
+- NodeJS 18+
+- Banco de Dados MongoDB
+- Google API e GitHub API keys
+
+## Configuração
+
+1. Clone este repositório para o seu ambiente local.
+
+2. Instale as dependências usando o seguinte comando:
+
+```
+   yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Configure as variáveis de ambiente no arquivo `.env` com as informações necessárias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+   NEXTAUTH_SECRET=
+   NEXTAUTH_URL=
+   GOOGLE_CLIENT_ID=
+   GOOGLE_CLIENT_SECRET=
+   GITHUB_ID=
+   GITHUB_SECRET=
+   DATABASE_URL=
+   ENCRYPTER_PASSWORD=
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Inicie a aplicação usando o comando:
 
-## Learn More
+```
+   yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Principais Ferramentas Utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- NextJS 13
+- Tailwind CSS
+- React Hook Form
+- Shadcn (Re-usable components built using Radix UI and Tailwind CSS)
+- NextAuth para autenticação
+- MongoDB para armazenamento de dados
+- Prisma para manipulação do banco de dados
+- OpenAI para inteligência artificial
+- Zod para validação de dados
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribuição
 
-## Deploy on Vercel
+Se você deseja contribuir com este projeto, siga estas etapas:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Faça um fork deste repositório.
+2. Crie um branch para suas contribuições: `git checkout -b sua-branch`.
+3. Implemente suas alterações e adicione documentação, se necessário.
+4. Envie suas alterações: `git push origin sua-branch`.
+5. Abra um pull request neste repositório.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Orion agradece antecipadamente por suas valiosas contribuições!
+
+## Licença
+
+Este projeto está licenciado sob os termos da Licença Apache 2.0. Para obter mais detalhes, consulte o arquivo [LICENSE](./LICENSE).
