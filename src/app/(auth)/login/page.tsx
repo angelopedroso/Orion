@@ -19,7 +19,7 @@ export default async function Login() {
 
   return (
     <main className="grid h-screen flex-1 place-items-center">
-      <section className="nm-convex-background-900-xl flex flex-col gap-8 rounded-md px-12 py-16">
+      <section className="flex flex-col gap-8 rounded-md px-12 py-16 nm-convex-background-900-xl">
         <div className="flex w-full justify-center">
           <Logo />
         </div>
