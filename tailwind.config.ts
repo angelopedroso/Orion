@@ -17,6 +17,9 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        header: 'var(--header)',
+      },
       colors: {
         'surface-primary-dark': '#0d121d',
         'surface-primary': '#111827',
