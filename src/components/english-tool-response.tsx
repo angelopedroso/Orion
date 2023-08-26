@@ -60,39 +60,33 @@ export function EnglishResponse() {
               header_title="Frases"
               header_desc="Exemplos de frases simples"
             >
-              <div className="w-full space-y-2 rounded-md border border-background-700/30 bg-background-700/20 px-6 py-3 text-sm">
-                <ul className="space-y-1">
+              <div className="w-full rounded-md border border-background-700/30 bg-background-700/20 px-6 py-3 text-sm">
+                <div className="grid gap-2 md:grid-cols-2 md:gap-x-4">
                   {responseData.exampleSentences?.map((phrase) => {
                     return (
-                      <li className="flex items-center gap-2" key={phrase}>
+                      <p className="flex items-center gap-2" key={phrase}>
                         <MoveRight className="h-4 w-4 text-violet-400" />
                         {phrase}
-                      </li>
+                      </p>
                     )
                   })}
-                </ul>
+                </div>
               </div>
             </WordResponseHeader>
           </div>
         </div>
       )}
       {!responseData.word && (
-        <div className="flex flex-1 flex-col items-center justify-center gap-4 px-8">
+        <div className="flex flex-1 flex-col items-center justify-center gap-4 px-8 text-slate-500">
           {!isLoading ? (
             <>
-              <SmilePlus
-                className="h-60 w-60 text-slate-500"
-                strokeWidth={0.5}
-              />
-              <h2 className="text-xl text-slate-500 md:text-2xl">
+              <SmilePlus className="h-48 w-48" strokeWidth={0.5} />
+              <h2 className="text-xl">
                 Qual palavra você tem dúvida? Me diga que eu lhe ajudo!{' '}
               </h2>
             </>
           ) : (
-            <Loader2
-              className="h-60 w-60 animate-spin text-slate-500"
-              strokeWidth={0.5}
-            />
+            <Loader2 className="h-48 w-48 animate-spin" strokeWidth={0.5} />
           )}
         </div>
       )}
