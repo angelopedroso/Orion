@@ -88,7 +88,7 @@ export function ProfileComponent() {
                   onClick={() => signOut({ callbackUrl: '/' })}
                   className={`${buttonVariants({
                     variant: 'secondary',
-                  })}flex h-full w-36 flex-col gap-2 px-8 py-6 `}
+                  })}flex h-full w-36 flex-col gap-2 px-8 py-6`}
                 >
                   <LogOut className="h-10 w-10 md:h-14 md:w-14" />
                   Sair

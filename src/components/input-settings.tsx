@@ -40,6 +40,7 @@ export function InputSettings({
   const {
     formState: { errors },
   } = form
+  const hasError = !!errors[formRegister]
 
   return (
     <FormField
@@ -53,13 +54,10 @@ export function InputSettings({
           <FormControl>
             <Input
               placeholder={title}
-              {...field}
-              className={`h-11 border border-surface-primary bg-transparent text-sm text-slate-500 ${
-                errors[formRegister]
-                  ? 'focus-visible:border-red-500'
-                  : 'focus-visible:border-violet-500'
-              } focus-visible:ring-0 focus-visible:ring-offset-0`}
+              data-haserror={hasError}
+              className="border-surface-primary focus-visible:border-violet-500 focus-visible:ring-0 focus-visible:ring-offset-0 data-[haserror=true]:focus-visible:border-red-500"
               disabled={formRegister !== 'openai_token'}
+              {...field}
             />
           </FormControl>
 

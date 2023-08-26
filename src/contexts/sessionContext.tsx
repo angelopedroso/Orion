@@ -17,8 +17,8 @@ export function SessionCtxProvider({ children }: SessionContextProps) {
     <SessionProvider>
       <div
         className={`${
-          !hasHeader && 'px-4 py-8 md:px-10 lg:px-20'
-        } flex h-screen flex-col`}
+          !hasHeader && 'px-4 md:px-10 lg:px-20'
+        } flex h-screen flex-col py-8`}
       >
         {!hasHeader && <Header />}
         {children}
