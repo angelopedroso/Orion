@@ -6,7 +6,7 @@ export interface WordResponseProps {
   header_desc?: string
 }
 
-export function WordResponse({
+export function WordResponseHeader({
   children,
   header_title: headerTitle,
   header_desc: headerDesc = '',
