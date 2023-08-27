@@ -1,19 +1,17 @@
-'use client'
-
 import { ErrorIcon } from '@/assets/error-icon'
 import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <main className="flex items-center justify-center">
-      <div className="flex flex-col items-center gap-9">
+    <main className="flex h-screen items-center justify-center px-4 md:px-0">
+      <div className="flex flex-col items-center justify-center gap-4">
         <ErrorIcon />
-        <div className="-mt-12 flex flex-col items-center">
-          <h1 className="text-2xl font-bold text-slate-300 sm:text-4xl">
+        <div className="-mt-10 flex flex-col items-center justify-center">
+          <h1 className="text-center text-lg font-bold text-slate-300 md:text-2xl">
             Oops! Parece que você está num lugar desconhecido.
           </h1>
-          <p className="text-xs text-slate-200 sm:text-sm">
-            Dê meia volta e volte para casa 😉
+          <p className="text-sm font-semibold text-slate-200 md:text-lg">
+            Dê meia volta e volte para casa!
           </p>
         </div>
         <Link

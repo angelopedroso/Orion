@@ -1,3 +1,5 @@
+'use client'
+
 import { Player } from '@lottiefiles/react-lottie-player'
 import Image from 'next/image'
 import errorIcon from '@/assets/error-404.svg'
@@ -13,9 +15,7 @@ export function ErrorIcon() {
       />
       <Player
         className="h-44 w-44 bg-transparent sm:h-72 sm:w-72"
-        src={
-          'https://lottie.host/ab7a5c4d-d0de-4877-be5e-8cffedab2bf1/f7kJBYBWYz.json'
-        }
+        src="https://lottie.host/3b8e03bb-ddb5-4ca0-a69f-e5231351c4ad/vLFiMtpiKC.json"
         speed={1}
         loop
         autoplay
