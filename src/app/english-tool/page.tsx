@@ -67,7 +67,7 @@ export default async function EnglishTool() {
                 Histórico
               </h2>
               {history.length === 0 && (
-                <div className="flex flex-1 flex-col items-center justify-center">
+                <div className="flex flex-1 flex-col items-center justify-center text-slate-500">
                   <EmojiMessage
                     text1="Adicione uma palavra para começar."
                     text2="O seu histórico aparecerá aqui!"
