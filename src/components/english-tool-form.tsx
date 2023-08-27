@@ -21,9 +21,10 @@ type PromptProps = z.infer<typeof promptSchema>
 
 export type EnglishFormProps = {
   promptKey: string
+  userId?: string | null
 }
 
-export function EnglishForm({ promptKey }: EnglishFormProps) {
+export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
   const { setResponseWord, setIsLoading } = useContext(EnglishWordContext)
   const form = useForm<PromptProps>({
     resolver: zodResolver(promptSchema),
@@ -39,17 +40,24 @@ export function EnglishForm({ promptKey }: EnglishFormProps) {
 
     setResponseWord(res)
     setIsLoading(form.formState.isSubmitted)
+    form.reset()
+
+    await api.post('/history', {
+      userId,
+      data: res,
+    })
   }
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmitPrompt)}
-        className="group flex w-96 max-w-md rounded-md border-2 border-background-700/50 [&:has(:focus-visible)]:ring-2 [&:has(:focus-visible)]:ring-violet-500"
+        className="flex w-96 max-w-md rounded-md border-2 border-background-700/50 lg:z-10 [&:has(:focus-visible)]:ring-2 [&:has(:focus-visible)]:ring-violet-500"
       >
         <Input
           placeholder="Digite uma palavra ou expressão"
           className="border-0 focus-visible:ring-0"
+          autoComplete="off"
           {...form.register('prompt')}
         />
         <Button
