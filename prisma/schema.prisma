@@ -43,6 +43,30 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  history       History[]
+}
+
+model History {
+  id                      String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId                  String    @db.ObjectId
+  word                    String
+  meaningPortuguese       String
+  useType                 String
+  pronunciation           String
+  pronunciationSimilarity String
+  exampleSentences        String[]
+  possibleMeaning         Meaning[]
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Meaning {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  historyId   String @db.ObjectId
+  type        String
+  explanation String
+
+  history History @relation(fields: [historyId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
