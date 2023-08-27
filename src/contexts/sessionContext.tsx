@@ -11,16 +11,17 @@ export interface SessionContextProps {
 
 export function SessionCtxProvider({ children }: SessionContextProps) {
   const pathname = usePathname()
-  const hasHeader = pathname === '/login'
+  const noHeaderPaths = ['/', '/login/setting-up', '/english-tool']
+  const hasHeader = noHeaderPaths.includes(pathname)
 
   return (
     <SessionProvider>
       <div
         className={`${
-          !hasHeader && 'px-4 md:px-10 lg:px-20'
+          hasHeader && 'px-4 md:px-10 lg:px-20'
         } flex h-screen flex-col py-8`}
       >
-        {!hasHeader && <Header />}
+        {hasHeader && <Header />}
         {children}
       </div>
     </SessionProvider>
