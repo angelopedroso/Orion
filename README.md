@@ -1,5 +1,8 @@
 # Orion: Desvende o Inglês Autêntico
 
+[Comece a sua jornada →](https://orion-sand.vercel.app/)
+---
+
 ## Descrição
 
 Bem-vindo ao repositório da aplicação Orion, uma ferramenta para auxiliar você em sua jornada de estudos de inglês. Através do método de mineração de frases, o Orion permite que você mergulhe profundamente no idioma, coletando, estudando e aprendendo frases autênticas a partir de palavras novas que você encontra. Com o Orion, o controle do seu próprio aprendizado está em suas mãos, permitindo que você explore o idioma de maneira única e eficaz.
