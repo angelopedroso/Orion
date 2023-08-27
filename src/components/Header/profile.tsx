@@ -52,7 +52,7 @@ export function ProfileComponent() {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           side="bottom"
-          className="bg-background-800 border-background-700/60 text-slate-200"
+          className="border-background-700/60 bg-background-800 text-slate-200"
           align="end"
         >
           <DropdownMenuItem
