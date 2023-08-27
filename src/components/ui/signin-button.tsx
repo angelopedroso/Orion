@@ -45,7 +45,7 @@ export function SignInButton({ children, provider }: SignInButtonProps) {
         </>
       ) : (
         <>
-          {children} Continue with {isGithub ? 'Github' : 'Google'}
+          {children} Continue com {isGithub ? 'Github' : 'Google'}
         </>
       )}
     </Button>

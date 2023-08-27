@@ -32,7 +32,7 @@ export default async function Login() {
               <GithubIcon size={32} color="black" />
             </SignInButton>
             <span className="text-center text-sm font-medium text-slate-400/70">
-              or
+              ou
             </span>
             <SignInButton provider="google">
               <GoogleIcon size={32} />
