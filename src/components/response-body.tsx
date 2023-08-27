@@ -70,7 +70,7 @@ export function ResponseBody({ data }: ResponseBodyProps) {
               {exampleSentences?.map((phrase) => {
                 return (
                   <div className="flex items-center gap-2" key={phrase}>
-                    <MoveRight className="text-violet-400" size={16} />
+                    <MoveRight className="h-4 min-h-[1rem] w-4 min-w-[1rem] text-violet-400" />
                     <p>{phrase}</p>
                   </div>
                 )
