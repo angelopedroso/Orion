@@ -69,10 +69,10 @@ export function ResponseBody({ data }: ResponseBodyProps) {
             <div className="grid gap-2 md:grid-cols-2 md:gap-x-4">
               {exampleSentences?.map((phrase) => {
                 return (
-                  <p className="flex items-center gap-2" key={phrase}>
+                  <div className="flex items-center gap-2" key={phrase}>
                     <MoveRight className="h-4 w-4 text-violet-400" />
-                    {phrase}
-                  </p>
+                    <p>{phrase}</p>
+                  </div>
                 )
               })}
             </div>
