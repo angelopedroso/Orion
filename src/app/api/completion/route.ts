@@ -9,6 +9,7 @@ interface PossibleMeaning {
 }
 
 export interface OpenAIResponseProps {
+  id?: string
   word: string
   meaningPortuguese: string
   useType: string
@@ -43,10 +44,7 @@ export async function POST(req: Request) {
    Quando a palavra for em algum tempo verbal diferente do presente, toda a resposta deve ser retornada com a palavra recebida no presente. Por exemplo: "Gave up" para "Give up". A pronuncia em inglês também deve ser referente a palavra no presente;
    O retorno deve ser em formato JSON. Sendo as keys em ingles, exemplo: {"Word": "Hug"...};
    Os meaning deve ser em formato de array de objetos contendo um campo "type" que é responsavel por dizer o tipo de palavra (Verbo, Substantivo...), além da explicação;
-   The initial phrases must be ALL in capitalize sensitive;
    Provide 10 english example's phrase with it word, the phrases must be simple, short and without translation to portuguese, just english;
-   Caso a palavra não exista, responda apenas com "null";
-   Me retorne SOMENTE o JSON ou "null", nada além disso;
    JSON must be returned to the following forme:
    {
      "word": "",
@@ -63,8 +61,15 @@ export async function POST(req: Request) {
      "exampleSentences": [""]
    }
 
+   SE A PALAVRA NÃO EXISTIR ME RETORNE O SEGUINTE JSON:
+
+   {
+    "word": null,
+   }
+
    A partir da explicação acima, escreva o JSON a partir da palavra abaixo:
    Forneça EXATAMENTE 10 FRASES;
+   Word, useType e Type devem ser SEMPRE a PRIMEIRA LETRA em maiuscula;
 
    Palavra: ${prompt}
   `
