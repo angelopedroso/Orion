@@ -1,4 +1,4 @@
-import { DefaultUserIcon } from '@/assets/userIcon'
+import { DefaultUserIcon } from '@/assets/user-icon'
 import { SettingsForm } from '@/components/settings-form'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getCurrentUser } from '@/lib/session'

@@ -22,7 +22,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-import { DefaultUserIcon } from '@/assets/userIcon'
+import { DefaultUserIcon } from '@/assets/user-icon'
 
 import { LogIn, LogOut, User } from 'lucide-react'
 
