@@ -16,40 +16,37 @@ export default function Home() {
           Desvende o Inglês Autêntico
         </h2>
         <div className="max-w-6xl">
-          <p className="text-md font-semibold text-slate-300">
+          <p className=" font-semibold text-slate-300">
             A ferramenta perfeita para auxiliar você em sua jornada de estudos
             utilizando o método{' '}
-            <div className="inline">
-              <HoverCard>
-                <HoverCardTrigger className="cursor-default text-violet-400 hover:underline">
-                  mineração de frase
-                </HoverCardTrigger>
-                <HoverCardContent
-                  className="flex w-80 items-start gap-4 border-surface-primary bg-surface-primary-dark "
-                  align="start"
-                >
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg text-white">
-                      O que é a mineração de frases?
-                    </h3>
-                    <p className="text-sm text-slate-300">
-                      Coletar, estudar e aprender frases em inglês a partir de
-                      palavras novas que você encontra em seus estudos.
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg text-white">
-                      Quais são as vantagens de minerar frases?
-                    </h3>
-                    <p className="text-sm text-slate-300">
-                      Como você mesmo procura as frases a partir de palavras
-                      novas para você, o aprendizado é muito mais profundo e
-                      específico.
-                    </p>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-            </div>
+            <HoverCard>
+              <HoverCardTrigger className="cursor-default text-violet-400 hover:underline">
+                mineração de frase
+              </HoverCardTrigger>
+              <HoverCardContent
+                className="flex w-80 items-start gap-4 border-surface-primary bg-surface-primary-dark "
+                align="start"
+              >
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg text-white">
+                    O que é a mineração de frases?
+                  </h3>
+                  <p className="text-sm text-slate-300">
+                    Coletar, estudar e aprender frases em inglês a partir de
+                    palavras novas que você encontra em seus estudos.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg text-white">
+                    Quais são as vantagens de minerar frases?
+                  </h3>
+                  <p className="text-sm text-slate-300">
+                    Como você mesmo procura as frases a partir de palavras novas
+                    para você, o aprendizado é muito mais profundo e específico.
+                  </p>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
             . Imagine aprender inglês de forma mais profunda e específica,
             coletando, estudando e aprendendo frases autênticas a partir de
             palavras novas que você encontra. Com{' '}

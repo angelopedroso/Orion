@@ -34,7 +34,7 @@ export function SignInButton({ children, provider }: SignInButtonProps) {
 
   return (
     <Button
-      className="text-md gap-4 bg-slate-100/90 py-7 font-semibold text-slate-950 hover:bg-slate-100/80"
+      className=" gap-4 bg-slate-100/90 py-7 font-semibold text-slate-950 hover:bg-slate-100/80"
       onClick={handleSignIn}
       disabled={loading}
     >
