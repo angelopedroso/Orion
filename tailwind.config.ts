@@ -23,7 +23,7 @@ const config: Config = {
       colors: {
         'surface-primary-dark': '#0d121d',
         'surface-primary': '#111827',
-        background: { 700: '#091538', 900: '#030712' },
+        background: { 700: '#091538', 800: '#060c21', 900: '#030712' },
       },
       keyframes: {
         'accordion-down': {
