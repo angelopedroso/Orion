@@ -24,7 +24,7 @@ export default function Home() {
                 mineração de frase
               </HoverCardTrigger>
               <HoverCardContent
-                className="flex w-80 items-start gap-4 border-surface-primary bg-surface-primary-dark "
+                className="flex w-80 items-start gap-4 border-background-700/60 bg-background-800"
                 align="start"
               >
                 <div className="flex flex-col gap-2">
