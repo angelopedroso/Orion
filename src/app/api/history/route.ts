@@ -85,6 +85,9 @@ export async function GET(req: NextRequest) {
     where: {
       userId,
     },
+    include: {
+      possibleMeaning: true,
+    },
   })
 
   return NextResponse.json(data, { status: 200 })
