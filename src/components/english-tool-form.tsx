@@ -35,6 +35,7 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
 
   async function handleSubmitPrompt(data: PromptProps) {
     try {
+      setResponseWord({} as OpenAIResponseProps)
       setIsLoading(form.formState.isSubmitting)
 
       const { data: res } = await api.post<OpenAIResponseProps>('/completion', {
