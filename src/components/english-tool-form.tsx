@@ -14,8 +14,6 @@ import { OpenAIResponseProps } from '@/app/api/completion/route'
 import { EnglishWordContext } from '@/contexts/englishResponseContext'
 import { AxiosError, isAxiosError } from 'axios'
 import { useToast } from './ui/use-toast'
-import { ToastAction } from './ui/toast'
-import { useRouter } from 'next/navigation'
 
 const promptSchema = z.object({
   prompt: z.string().min(2).max(40),
@@ -34,7 +32,6 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
     resolver: zodResolver(promptSchema),
   })
   const { toast } = useToast()
-  const { push } = useRouter()
 
   async function handleSubmitPrompt(data: PromptProps) {
     try {
@@ -59,14 +56,6 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
             variant: 'destructive',
             title: 'Opps 😳! Tem algo errado...',
             description: axiosError.response.data.error,
-            action: (
-              <ToastAction
-                altText="Trocar chave"
-                onClick={() => push('/login/setting-up')}
-              >
-                Trocar chave
-              </ToastAction>
-            ),
           })
         }
       } else {
