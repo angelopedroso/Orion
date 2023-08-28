@@ -56,7 +56,7 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
           toast({
             variant: 'destructive',
             title: 'Opps 😳! Tem algo errado...',
-            description: axiosError.response.data.error,
+            description: axiosError.response.data.error ?? 'Tente novamente!',
           })
         }
       } else {
