@@ -79,9 +79,11 @@ export default async function EnglishTool() {
                   </EmojiMessage>
                 </div>
               )}
-              {history.map((item) => {
-                return <HistoryList data={item} key={item.id} />
-              })}
+              <div className="-mr-4 h-[38.75rem] space-y-2 overflow-y-auto pr-4 scrollbar scrollbar-track-background-900 scrollbar-thumb-background-800 scrollbar-thumb-rounded-md scrollbar-w-2 hover:scrollbar-thumb-background-700/60">
+                {history.map((item) => {
+                  return <HistoryList data={item} key={item.id} />
+                })}
+              </div>
             </div>
           </TabsContent>
         </Tabs>
