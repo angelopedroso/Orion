@@ -103,7 +103,7 @@ export function SettingsForm({
                 target="_blank"
                 className="underline hover:text-violet-500 focus:text-violet-500"
               >
-                Sua chave será criptografada
+                Sua chave será criptografada. Clique aqui para resgatar.
               </Link>
             </InputSettings>
           </div>
