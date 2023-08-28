@@ -71,6 +71,7 @@ export async function POST(req: Request) {
      A partir da explicação acima, escreva o JSON a partir da palavra abaixo:
      Forneça EXATAMENTE 10 FRASES;
      Word, useType e Type devem ser SEMPRE a PRIMEIRA LETRA em maiuscula;
+     Tente fornecer SEMPRE mais de um significado para a palavra/expressão, sendo no máximo TRÊS significados;
   
      Palavra: ${prompt}
     `
