@@ -66,7 +66,7 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
         })
       }
     } finally {
-      setIsLoading(form.formState.isSubmitted)
+      setIsLoading(false)
       form.reset()
     }
   }
