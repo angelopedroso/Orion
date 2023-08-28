@@ -95,7 +95,10 @@ export async function POST(req: Request) {
     )
   } catch (error) {
     return NextResponse.json(
-      { error: 'Chave da OpenAI incorreta!' },
+      {
+        error:
+          'Chave da OpenAI incorreta ou o limite gratuito da chave foi atingido!',
+      },
       { status: 400 },
     )
   }
