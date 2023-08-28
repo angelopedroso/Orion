@@ -12,6 +12,8 @@ import { Form } from './ui/form'
 import { api } from '@/lib/axios'
 import { OpenAIResponseProps } from '@/app/api/completion/route'
 import { EnglishWordContext } from '@/contexts/englishResponseContext'
+import { AxiosError, isAxiosError } from 'axios'
+import { useToast } from './ui/use-toast'
 
 const promptSchema = z.object({
   prompt: z.string().min(2).max(40),
@@ -29,23 +31,44 @@ export function EnglishForm({ promptKey, userId }: EnglishFormProps) {
   const form = useForm<PromptProps>({
     resolver: zodResolver(promptSchema),
   })
+  const { toast } = useToast()
 
   async function handleSubmitPrompt(data: PromptProps) {
-    setIsLoading(form.formState.isSubmitting)
+    try {
+      setIsLoading(form.formState.isSubmitting)
 
-    const { data: res } = await api.post<OpenAIResponseProps>('/completion', {
-      prompt: data.prompt,
-      key: promptKey,
-    })
+      const { data: res } = await api.post<OpenAIResponseProps>('/completion', {
+        prompt: data.prompt,
+        key: promptKey,
+      })
 
-    setResponseWord(res)
-    setIsLoading(form.formState.isSubmitted)
-    form.reset()
+      setResponseWord(res)
 
-    await api.post('/history', {
-      userId,
-      data: res,
-    })
+      await api.post('/history', {
+        userId,
+        data: res,
+      })
+    } catch (error) {
+      if (isAxiosError(error)) {
+        const axiosError = error as AxiosError<{ error: string }>
+        if (axiosError.response) {
+          toast({
+            variant: 'destructive',
+            title: 'Opps 😳! Tem algo errado...',
+            description: axiosError.response.data.error,
+          })
+        }
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Opps 😳! Tem algo errado...',
+          description: 'Ocorreu um erro desconhecido. Tente novamente!',
+        })
+      }
+    } finally {
+      setIsLoading(form.formState.isSubmitted)
+      form.reset()
+    }
   }
 
   return (
